@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -18,9 +18,9 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <Navbar />
-      <h1 className="text-lg text-white font-bold text-center mb-8">Select Query</h1>
+      <h1 className="text-lg text-slate-600 font-bold text-center mb-8">Select Query</h1>
       <div className="flex flex-col items-center justify-center w-full">
-        <button className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4">
+        <button onClick={() => router.push('/query1')} className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4">
         Find sales by price and date
         </button>
         <button className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4">
@@ -33,11 +33,11 @@ export default function Home() {
     </div>
   );
 }
-function Navbar() {
+export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-600 text-white shadow-md">
       <div className="container mx-auto flex items-center justify-between p-4">
-        <div className="text-lg font-bold">CarsDB</div>
+        <div className="text-lg font-bold"><Link href="/">CarsDB</Link></div>
         <ul className="flex space-x-4">
           <li><a href="#" className="hover:underline">About</a></li>
         </ul>
