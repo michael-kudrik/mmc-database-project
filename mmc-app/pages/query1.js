@@ -6,6 +6,7 @@ export default function query1() {
   const [price, setPrice] = useState(500); // get price (default five hunned)
   const [results, setResults] = useState([]); //stors results from API
   const [error, setError] = useState(""); //self explanatory
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async () => {
     if (!date || !price) {
@@ -17,6 +18,7 @@ export default function query1() {
     const formatDate = `${date} 00:00:00`;
     setError("");
     try {
+        setSubmitted(true); // say that the user submitted
       //this line builds a url with query parameters
       // it will look like GET /api/sales/by-price?price=40000&date=2023-04-04
       const res = await fetch( 
@@ -24,8 +26,10 @@ export default function query1() {
       );
       const data = await res.json(); //wait for response
       setResults(data);
+      
     } catch (err) {
       setError("Something messed up!");
+      
     }
   };
 
@@ -60,7 +64,9 @@ export default function query1() {
         </button>
         {/* fetch from error and display*/}
         {error && <p className="text-red-500 mt-2">{error}</p>}
-
+        {submitted && results.length === 0 && !error && (
+            <p className="text-slate-500 font-bold mt-2">No Results.</p>
+        )}
         {results.length > 0 && (
           <div className="mt-8 w-full max-w-3xl">
             <table className="w-full border">
