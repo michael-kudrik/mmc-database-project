@@ -4,6 +4,13 @@ import { Navbar } from "./index.js";
 export default function query2() {
    // const [type, setType] = useState("max");
     const [date, SetDate] = useState("");
+    const [type, SetType] = useState("");
+
+
+    const handleSubmit = async () =>{
+        
+    }
+    
   return (
     <>
       <Navbar />
@@ -21,13 +28,13 @@ export default function query2() {
 
         <div className="flex items-center justify-center w-full">
         <button
-          //onClick={handleSubmit}
+          onClick={()=>{setType("most"); handleSubmit();}}
           className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4 cursor-pointer"
         >
           Most
         </button>
         <button
-          //onClick={handleSubmit}
+          nClick={()=>{setType("least"); handleSubmit();}}
           className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4 cursor-pointer"
         >
           Least
