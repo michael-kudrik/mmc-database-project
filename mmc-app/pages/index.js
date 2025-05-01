@@ -23,7 +23,7 @@ export default function Home() {
         <button onClick={() => router.push('/query1')} className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4">
         Find sales by price and date
         </button>
-        <button className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4">
+        <button onClick={() => router.push('/query2')} className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4">
         Most or least expensive sale on a date
         </button>
         <button className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full m-4">
