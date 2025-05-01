@@ -13,12 +13,14 @@ export default function query1() {
       setError("Missing input!");
       return;
     }
+    // the dates in our database all have this time
+    const formatDate = `${date} 00:00:00`;
     setError("");
     try {
       //this line builds a url with query parameters
       // it will look like GET /api/sales/by-price?price=40000&date=2023-04-04
-      const res = await fetch(
-        `/api/sales/by-price?price=${price}&date=${date}`
+      const res = await fetch( 
+        `/api/sales/by-price?price=${price}&date=${encodeURIComponent(formatDate)}` //need to use encodeURI becuz url bars can have spaces
       );
       const data = await res.json(); //wait for response
       setResults(data);
