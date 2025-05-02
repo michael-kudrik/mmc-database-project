@@ -24,8 +24,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    const [rows] = await db.execute(
-      `SELECT c.vin, t.buy_price, t.buy_date, e.EID, e.fname, e.lname, e.email, p.fname, p.lname
+    const [rows] = await db.execute(// the aliasing saved my a** here
+      `SELECT c.vin, t.buy_price, t.buy_date, e.EID, e.fname AS efname, e.lname AS elname, e.email, p.fname AS pfname, p.lname AS plname
     FROM car_inventory c 
     JOIN c_transeid t ON c.c_id = t.cid 
     JOIN emps e ON t.eid = e.EID 
