@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Navbar } from "./index.js";
 
+/* Find the salespeople who bought cars that had retail prices over an amount on a specific date. (example, 40,000 on the 4th of April 2023) */
+
 export default function query1() {
   const [date, setDate] = useState(""); //get date from user
   const [price, setPrice] = useState(500); // get price (default five hunned)

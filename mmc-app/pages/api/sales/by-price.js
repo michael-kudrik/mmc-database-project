@@ -24,7 +24,7 @@ export default async function handler(req, res){
 
     }
 
-    try{
+    try{ // I was curious while making this, so I googled it and these placeholders work to prevent SQL injections (pretty neat)
       const [rows] = await db.execute(
         `SELECT e.fname, e.lname, c.make, c.model, t.retail, t.buy_date
        FROM car_inventory c
