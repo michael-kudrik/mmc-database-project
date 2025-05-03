@@ -10,12 +10,6 @@ const db = await mysql.createPool({
   database: process.env.DB_NAME,
 });
 
-// API route handler to fetch all rows from the 'car_inventory' table
-// export default async function handler(req, res) {
-//   const [rows] = await db.execute('SELECT * FROM car_inventory');
-//   res.status(200).json(rows);
-// }
-
 export default async function handler(req, res) {
   const { vin } = req.query;
 
@@ -24,7 +18,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    const [rows] = await db.execute(// the aliasing saved my a** here
+    const [rows] = await db.execute(
+      // the aliasing saved my a** here
       `SELECT 
     c.vin, t.buy_price, t.buy_date,
     e.EID, e.fname AS emfname, e.lname AS emlname, e.email,

@@ -1,5 +1,5 @@
-import mysql from 'mysql2/promise';
-import dotenv from 'dotenv';
+import mysql from "mysql2/promise";
+import dotenv from "dotenv";
 dotenv.config();
 
 // connect MySQL database using environment variables
@@ -10,34 +10,28 @@ const db = await mysql.createPool({
   database: process.env.DB_NAME,
 });
 
-// API route handler to fetch all rows from the 'car_inventory' table
-// export default async function handler(req, res) {
-//   const [rows] = await db.execute('SELECT * FROM car_inventory');
-//   res.status(200).json(rows);
-// }
+export default async function handler(req, res) {
+  const { price, date } = req.query;
 
-export default async function handler(req, res){
-    const {price, date} = req.query;
+  if (!price || !date) {
+    return res.status(400).json({ error: "Missing parameter" });
+  }
 
-    if(!price || !date){
-      return res.status(400).json({ error: "Missing parameter"});
-
-    }
-
-    try{ // I was curious while making this, so I googled it and these placeholders work to prevent SQL injections (pretty neat)
-      const [rows] = await db.execute(
-        `SELECT e.fname, e.lname, c.make, c.model, t.retail, t.buy_date
+  try {
+    // I was curious while making this, so I googled it and these placeholders work to prevent SQL injections (pretty neat)
+    const [rows] = await db.execute(
+      `SELECT e.fname, e.lname, c.make, c.model, t.retail, t.buy_date
        FROM car_inventory c
        JOIN c_transeid t ON c.c_id = t.cid
        JOIN emps e ON t.eid = e.EID
        WHERE t.buy_date = ? AND t.retail > ?
        ORDER BY t.buy_price`,
-       [date, price]
-      );
+      [date, price]
+    );
 
-      res.status(200).json(rows);
-    } catch (err){
-      console.error(err);
-      res.status(500).json({error: "Query was FUBAR", details: err.message});
-    }
+    res.status(200).json(rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Query was FUBAR", details: err.message });
+  }
 }

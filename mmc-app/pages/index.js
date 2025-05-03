@@ -21,7 +21,9 @@ export default function Home() {
       <h1 className="text-4xl text-slate-600 font-[scale-variable] font-bold text-center mb-8">
         Select Query
       </h1>
-      <p className="text-slate-600 font-[scale-variable]">Press "CarsDB" in the top left to return home</p>
+      <p className="text-slate-600 font-[scale-variable]">
+        Press "CarsDB" in the top left to return home
+      </p>
       <div className="flex flex-col items-center justify-center w-full">
         <button
           onClick={() => router.push("/query1")}
