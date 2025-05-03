@@ -28,8 +28,8 @@ This is a full-stack car sales lookup application built with **Next.js**, **Reac
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/mmc-sales-lookup.git
-cd mmc-sales-lookup/client
+git clone https://github.com/michael-kudrik/mmc-database-project.git
+cd mmc-app
 ```
 
 ### 2. Install Dependencies
