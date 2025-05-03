@@ -35,10 +35,9 @@ export default function query2() {
       <Navbar />
       <div className="flex flex-col items-center justify-center w-full mt-16">
         <h1 className="text-lg text-slate-600 font-bold text-center m-4">
-          Find the most expensive car or least expensive car bought on any given
-          date and the salesperson who bought it.
+          Given a VIN number, find the salesperson, the wholesale price, and the
+          sellers name.
         </h1>
-        
 
         <div className="flex flex-col items-center justify-center w-full">
           <div className="flex">
@@ -77,10 +76,10 @@ export default function query2() {
                   {results.map((r, i) => (
                     <tr key={i}>
                       <td className="border px-2 py-1">
-                        {r.fname} {r.lname}
+                        {r.emfname} {r.emlname}
                       </td>
                       <td className="border px-2 py-1">
-                        {r["p.fname"]} {r["p.lname"]}
+                        {r.cfname} {r.clname}
                       </td>
                       <td className="border px-2 py-1">
                         ${r.buy_price.toLocaleString()}
