@@ -30,3 +30,59 @@ This is a full-stack car sales lookup application built with **Next.js**, **Reac
 ```bash
 git clone https://github.com/your-username/mmc-sales-lookup.git
 cd mmc-sales-lookup/client
+```
+
+### 2. Install Dependencies
+```bash
+pnpm install
+```
+
+### 3. Configure Environment Variables
+
+Create a file called .env.local in the client/ directory:
+```
+DB_HOST=localhost
+DB_USER=your_mysql_user
+DB_PASS=your_mysql_password
+DB_NAME=your_database_name
+```
+Do not commit this file to Git obv. 
+
+### 4. Run the App
+```bash
+pnpm dev
+```
+The frontend + backend API will be available at:
+`http://localhost:3000`
+
+## 📁 Project Structure
+
+```bash
+├── pages/
+│   ├── index.js               # Home page
+│   ├── query1.js              # Query 1: by price & date
+│   ├── query2.js              # Query 2: most/least expensive
+│   ├── query3.js              # Query 3: by VIN
+│   ├── _app.js                # Global app setup
+│   ├── _document.js           # this was where i edited the fonts
+│   └── api/
+│       └── sales/
+│           ├── by-price.js   # backend for query1
+│           ├── most-least.js # query2 
+│           └── by-vin.js     #query3
+├── styles/
+│   └── globals.css
+├── public/                    
+├── .env.local                 # this is where you should store your database credentials
+├── .gitignore
+├── package.json
+├── pnpm-lock.yaml
+├── tailwind.config.js
+├── postcss.config.mjs
+└── next.config.mjs
+
+#the rest of these things are just part of NextJS, React, TailwindCSS, or contain packages
+```
+
+
+
