@@ -6,6 +6,8 @@ This is a full-stack car sales lookup application built with **Next.js**, **Reac
 - Find the most or least expensive car sold on a given date
 - Look up a car sale by VIN and view transaction details
 
+![Demo Video](mmc_demo.gif)
+
 ## 🚀 Features
 
 - Three distinct queries, each with its own form and API route
