@@ -28,5 +28,61 @@ This is a full-stack car sales lookup application built with **Next.js**, **Reac
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/mmc-sales-lookup.git
-cd mmc-sales-lookup/client
+git clone https://github.com/michael-kudrik/mmc-database-project.git
+cd mmc-app
+```
+
+### 2. Install Dependencies
+```bash
+pnpm install
+```
+
+### 3. Configure Environment Variables
+
+Create a file called .env.local in the client/ directory:
+```
+DB_HOST=localhost
+DB_USER=your_mysql_user   #this is probably just root
+DB_PASS=your_mysql_password
+DB_NAME=your_database_name  #should be just cars
+```
+Do not commit this file to Git obv. 
+
+### 4. Run the App
+```bash
+pnpm dev
+```
+The frontend + backend API will be available at:
+`http://localhost:3000`
+
+## 📁 Project Structure
+
+```bash
+├── pages/
+│   ├── index.js               # Home page
+│   ├── query1.js              # Query 1: by price & date
+│   ├── query2.js              # Query 2: most/least expensive
+│   ├── query3.js              # Query 3: by VIN
+│   ├── _app.js                # Global app setup
+│   ├── _document.js           # this was where i edited the fonts
+│   └── api/
+│       └── sales/
+│           ├── by-price.js   # backend for query1
+│           ├── most-least.js # query2 
+│           └── by-vin.js     #query3
+├── styles/
+│   └── globals.css
+├── public/                    
+├── .env.local                 # this is where you should store your database credentials
+├── .gitignore
+├── package.json
+├── pnpm-lock.yaml
+├── tailwind.config.js
+├── postcss.config.mjs
+└── next.config.mjs
+
+#the rest of these things are just part of NextJS, React, TailwindCSS, or contain packages
+```
+
+
+
