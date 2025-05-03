@@ -42,9 +42,9 @@ pnpm install
 Create a file called .env.local in the client/ directory:
 ```
 DB_HOST=localhost
-DB_USER=your_mysql_user
+DB_USER=your_mysql_user   #this is probably just root
 DB_PASS=your_mysql_password
-DB_NAME=your_database_name
+DB_NAME=your_database_name  #should be just cars
 ```
 Do not commit this file to Git obv. 
 
