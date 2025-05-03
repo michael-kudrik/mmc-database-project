@@ -74,14 +74,14 @@ export default function query2() {
             <p className="text-slate-500 font-bold mt-2">No Results.</p>
         )}
         {results.length > 0 && (
-          <div className="mt-8 w-full max-w-3xl">
+          <div className="mt-8 w-full overflow-hidden rounded-lg max-w-3xl">
             <table className="w-full border">
-              <thead className="bg-gray-100">
+              <thead className="bg-slate-500">
                 <tr>
-                  <th className="border px-2 py-1">Salesperson</th>
-                  <th className="border px-2 py-1">Car</th>
-                  <th className="border px-2 py-1">Retail</th>
-                  <th className="border px-2 py-1">Buy Date</th>
+                  <th className="border text-white px-2 py-1">Salesperson</th>
+                  <th className="border text-white px-2 py-1">Car</th>
+                  <th className="border text-white px-2 py-1">Retail</th>
+                  <th className="border text-white px-2 py-1">Buy Date</th>
                 </tr>
               </thead>
               <tbody>
