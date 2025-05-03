@@ -18,9 +18,10 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <Navbar />
-      <h1 className="text-lg text-slate-600 font-bold text-center mb-8">
+      <h1 className="text-4xl text-slate-600 font-[scale-variable] font-bold text-center mb-8">
         Select Query
       </h1>
+      <p className="text-slate-600 font-[scale-variable]">Press "CarsDB" in the top left to return home</p>
       <div className="flex flex-col items-center justify-center w-full">
         <button
           onClick={() => router.push("/query1")}
@@ -48,16 +49,9 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-600 text-white shadow-md">
       <div className="container mx-auto flex items-center justify-between p-4">
-        <div className="text-lg font-bold">
+        <div className="text-lg font-bold font-[scale-variable]">
           <Link href="/">CarsDB</Link>
         </div>
-        <ul className="flex space-x-4">
-          <li>
-            <a href="#" className="hover:underline">
-              About
-            </a>
-          </li>
-        </ul>
       </div>
     </nav>
   );

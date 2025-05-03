@@ -5,7 +5,7 @@ import { Navbar } from "./index.js";
 
 export default function query2() {
   // const [type, setType] = useState("max");
-  const [vin, setVin] = useState("");
+  const [vin, setVin] = useState("AZZCLH2530FVJ1T8T");
   const [error, setError] = useState(""); //self explanatory
   const [submitted, setSubmitted] = useState(false);
   const [results, setResults] = useState([]); //stores results from API
